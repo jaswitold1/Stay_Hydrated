@@ -1,13 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, Text, Input, View } from "react-native";
 
 const LoginScreen = () => {
   return (
     <View>
       <Text>Login</Text>
-      <TextInput />
+      <Input />
       <Text>Pass</Text>
-      <TextInput />
+      <Input />
     </View>
   );
 };
