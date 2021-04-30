@@ -8,7 +8,7 @@ import MainScreen from "../screens/MainScreen";
 const StayHydratedNavigator = createStackNavigator({
   LetsStart: LetsStartScreen,
   Login: LoginScreen,
-  Main: MainScreen,
+  StayHydrated: MainScreen,
 });
 
 export default createAppContainer(StayHydratedNavigator);

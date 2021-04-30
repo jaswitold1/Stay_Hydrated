@@ -40,11 +40,11 @@ const LoginScreen = (props) => {
       .then((resp) => resp.json())
       .then((resp) =>
         resp.registered == true
-          ? props.navigation.navigate({ routeName: "Main" })
+          ? props.navigation.navigate({ routeName: "StayHydrated" })
           : ""
       )
 
-      .catch((error) => console.error("Error", error.message));
+      .catch((error) => error);
     setIsLoading(false);
   };
   return isLoading ? (

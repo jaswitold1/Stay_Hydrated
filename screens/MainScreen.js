@@ -1,20 +1,20 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, SafeAreaView } from "react-native";
 
 const MainScreen = () => {
   return (
-    <View>
-      <Text>
-        yarn add react-navigation-stackyarn add react-navigation-stack yarn add
-        react-navigation-stack yarn add react-navigation-stack yarn add
-        react-navigation-stack yarn add react-navigation-stack yarn add
-        react-navigation-stack yarn add react-navigation-stack yarn add
-        react-navigation-stack yarn add react-navigation-stack
-      </Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text>You have drank</Text>
+    </SafeAreaView>
   );
 };
 
 export default MainScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+});
