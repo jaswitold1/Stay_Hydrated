@@ -18,7 +18,34 @@ const MainScreen = () => {
         }
       });
   }, []);
-  const triggerNotificationHandler = () => {
+
+  //// two buttons one with start reminding one with stop reminding
+  ////then interval checking if the hour is right and no reminding after 24
+  let notificationInterval = {};
+  const startReminding = () => {
+    Notifications.setNotificationHandler({
+      handleNotification: async () => ({
+        shouldShowAlert: true,
+        shouldPlaySound: false,
+        shouldSetBadge: false,
+      }),
+    });
+
+    notificationInterval = setInterval(() => {
+      Notifications.scheduleNotificationAsync({
+        content: {
+          title: "Stay Hydrated",
+          body: "You should drink Your water now!",
+        },
+        trigger: null,
+      });
+    }, 5000);
+  };
+  const stopReminding = () => {
+    clearInterval(notificationInterval);
+  };
+
+  const drinkingbuttonHandler = () => {
     Notifications.scheduleNotificationAsync({
       content: {
         title: "Stay Hydrated",
@@ -32,10 +59,8 @@ const MainScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text>You have drank</Text>
-      <Button
-        onPress={triggerNotificationHandler}
-        title='I have drank the water'
-      />
+      <Button onPress={startReminding} title='Set Reminder' />
+      <Button onPress={stopReminding} title='Stop reminding' />
     </SafeAreaView>
   );
 };
