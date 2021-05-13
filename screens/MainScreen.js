@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Button, Text, SafeAreaView } from "react-native";
 import * as Notifications from "expo-notifications";
 import * as Permissions from "expo-permissions";
 
 const MainScreen = () => {
+  const [notificationInterval, setNotificationInterval] = useState({});
   useEffect(() => {
     Permissions.getAsync(Permissions.NOTIFICATIONS)
       .then((statusObj) => {
@@ -19,48 +20,35 @@ const MainScreen = () => {
       });
   }, []);
 
-  //// two buttons one with start reminding one with stop reminding
-  ////then interval checking if the hour is right and no reminding after 24
-  let notificationInterval = {};
   const startReminding = () => {
-    Notifications.setNotificationHandler({
-      handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: false,
-        shouldSetBadge: false,
-      }),
-    });
+    setNotificationInterval(
+      setInterval(() => {
+        let date = new Date();
+        let hour = date.getHours();
+        if (hour <= 22 && hour >= 10) {
+          Notifications.presentNotificationAsync({
+            title: "Stay Hydrated",
+            body: "You should drink Your water now!",
+          });
+        }
 
-    notificationInterval = setInterval(() => {
-      Notifications.scheduleNotificationAsync({
-        content: {
-          title: "Stay Hydrated",
-          body: "You should drink Your water now!",
-        },
-        trigger: null,
-      });
-    }, 5000);
+        ///// if date = 24 then reset style value of water lvl to 0
+      }, 3000)
+    );
   };
   const stopReminding = () => {
     clearInterval(notificationInterval);
+    setNotificationInterval({});
   };
 
   const drinkingbuttonHandler = () => {
-    Notifications.scheduleNotificationAsync({
-      content: {
-        title: "Stay Hydrated",
-        body: "You should drink Your water now!",
-      },
-      trigger: {
-        seconds: 10,
-      },
-    });
+    /// setStateOfVariableStyleOfWaterLvl + 1
   };
   return (
     <SafeAreaView style={styles.container}>
       <Text>You have drank</Text>
-      <Button onPress={startReminding} title='Set Reminder' />
-      <Button onPress={stopReminding} title='Stop reminding' />
+      <Button onPress={() => startReminding()} title='Set Reminder' />
+      <Button onPress={() => stopReminding()} title='Stop reminding' />
     </SafeAreaView>
   );
 };
