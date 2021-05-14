@@ -37,7 +37,7 @@ const Reminder = () => {
         }
       }, 3000)
     );
-  };
+  }; //////// maybe full hours interval
   ////2 * 60 * 60 * 1000
   const stopReminding = () => {
     clearInterval(notificationInterval);
