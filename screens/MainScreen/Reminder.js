@@ -57,5 +57,7 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     alignItems: "center",
+    height: "15%",
+    justifyContent: "space-evenly",
   },
 });

@@ -19,7 +19,11 @@ export default function WaterIndicator() {
       alignItems: "center",
       width: 200,
       backgroundColor: counter > 7 ? "lightgreen" : "lightblue",
-      height: counter * 70 + 18,
+      height: counter * 50 + 18,
+    },
+    goodJob: {
+      display: "flex",
+      alignItems: "center",
     },
   });
 
@@ -29,7 +33,7 @@ export default function WaterIndicator() {
         {counter < 8 ? (
           <Text>You have drank {counter} glasses</Text>
         ) : (
-          <View style={{ display: "flex", alignItems: "center" }}>
+          <View style={styles.goodJob}>
             <Text>Good job ! </Text>
             <Text>Recommended 8 glasses !</Text>
           </View>
