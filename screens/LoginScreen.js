@@ -56,8 +56,9 @@ const LoginScreen = (props) => {
         onChangeText={(text) => handleInput(text, "email")}
         style={styles.input}
       />
-      <Text>Pass</Text>
+      <Text>Password</Text>
       <TextInput
+        secureTextEntry={true}
         onChangeText={(text) => handleInput(text, "password")}
         style={styles.input}
       />
@@ -76,6 +77,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   input: {
-    width: "100%",
+    width: "40%",
+    marginVertical: 8,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: "black",
+    borderStyle: "solid",
   },
 });

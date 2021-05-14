@@ -3,7 +3,7 @@ import { StyleSheet, Button, Text, View } from "react-native";
 
 const LetsStartScreen = (props) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Button
         title="Let's Start"
         onPress={() => {
@@ -16,4 +16,11 @@ const LetsStartScreen = (props) => {
 
 export default LetsStartScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
