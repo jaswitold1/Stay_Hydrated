@@ -10,7 +10,7 @@ const StayHydratedNavigator = createStackNavigator({
     screen: LetsStartScreen,
     navigationOptions: {
       title: null,
-      headerLeft: null,
+
       headerShown: false,
     },
   },
@@ -18,14 +18,16 @@ const StayHydratedNavigator = createStackNavigator({
     screen: LoginScreen,
     navigationOptions: {
       title: "Log In",
-      headerLeft: null,
+      headerLeft: () => null,
+      gestureEnabled: false,
     },
   },
   StayHydrated: {
     screen: MainScreen,
     navigationOptions: {
       title: "Stay Hydrated",
-      headerLeft: null,
+      headerLeft: () => null,
+      gestureEnabled: false,
     },
   },
 });
