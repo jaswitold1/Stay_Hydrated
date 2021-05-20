@@ -3,13 +3,13 @@ If you need to take up one health habit it should be hydrating your body. So her
 
 <h2>Running</h2>
 
-Install Xcode or. Android Studio and configure simulators, then:
+On desktop install Xcode or Android Studio and configure simulators, then:
 
 ```
 expo start
 ```
 
-or:
+or on Mobile with Expo App:
 
 ![image](https://user-images.githubusercontent.com/61252680/119032771-db518b80-b9ac-11eb-98e5-ab5b965b5ede.png)
 
